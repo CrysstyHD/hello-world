@@ -71,13 +71,13 @@ public class Produs {
     }
 }
 
-public class Utilizatori {
+public class Utilizator {
 
     String user;
     int id,varsta;
     String adresa;
 
-    public Utilizatori{
+    public Utilizator{
         this.user = user;
         this.varsta = varsta;
         this.id = id;
