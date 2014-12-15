@@ -1,16 +1,40 @@
 hello-world
 ===========
 
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-
-public class ConexiuneBazaDeDate 
-
-{
-
-	Connection c;
-
+public class ConectareBazaDate {
+    
+    Connection connectionn;
+    
+    public static Connection ConnectDB(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch(ClassNotFoundException exception){
+            return null;
+        }
+        
+        try{
+            String cale="jdbc:mysql://localhost:3306/Depozit";
+            String userName="root";
+            String userPass="";
+            
+            connectionn=(Connection) DriverManager.getConnection(cale, userName, userPass);
+            Statement statement=connectionn.createStatement();
+            return connectionn;
+        }
+        catch(SQLException err){
+            System.out.println(err.getMessage());
+            return null;
+        }
+    }
+   
 }
+
 
 public class AdministrareComanda {
 }
